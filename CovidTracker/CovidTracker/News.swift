@@ -6,25 +6,21 @@
 //  Copyright © 2020 Asrith Sreeram. All rights reserved.
 //
 
-import Foundation
-
-class NewsPost{
-    let title: String
-    let body: String
-    let image: Image
-    
-    init(_ title: String, _ body: String, _ image: Image){
-        self.title=title
-        self.body=body
-        self.image=image
+import UIKit
+import WebKit
+class NewsPost: UIViewController, WKNavigationDelegate {
+    var webView: WKWebView!
+    override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
     }
-    
-    func display(){
-        //Display and format UI
+    override func viewDidLoad() {
+        let url = URL(string: "https://www.cdc.gov/coronavirus/2019-nCoV/index.html")!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        }
     }
-}
-
-//Temporary Implementation of image
-class Image{
-    
-}

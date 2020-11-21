@@ -8,6 +8,7 @@
 
 import Foundation
 class QRCode{
+    /*
     var code: Image
     
     init(_ image: Image){
@@ -17,4 +18,5 @@ class QRCode{
     func scan() -> Location {
         return scan()
     }
+ */
 }
